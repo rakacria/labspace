@@ -47,7 +47,7 @@ export default function SubmitPage() {
         data: { user },
       } = await supabase.auth.getUser()
       if (!user) {
-        setError("Você precisa estar logado para submeter.")
+        setError("You need to be signed in to submit.")
         setSubmitting(false)
         return
       }
@@ -108,7 +108,7 @@ export default function SubmitPage() {
 
       router.push(`/program/${program.slug}`)
     } catch {
-      setError("Algo deu errado. Tente novamente.")
+      setError("Something went wrong. Please try again.")
     } finally {
       setSubmitting(false)
     }
@@ -118,18 +118,18 @@ export default function SubmitPage() {
     <div className="container mx-auto px-4 py-8 max-w-3xl">
       <div className="flex items-center gap-3 mb-6">
         <FlaskConical className="h-8 w-8" />
-        <h1 className="text-3xl font-bold">Submeter Programa</h1>
+        <h1 className="text-3xl font-bold">Submit Program</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Program info */}
         <Card>
           <CardHeader>
-            <CardTitle>Informações do Programa</CardTitle>
+            <CardTitle>Program Info</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <Label htmlFor="title">Título *</Label>
+              <Label htmlFor="title">Title *</Label>
               <Input
                 id="title"
                 placeholder="Ex: GLU-sweep-v1"
@@ -139,10 +139,10 @@ export default function SubmitPage() {
               />
             </div>
             <div>
-              <Label htmlFor="description">Descrição curta</Label>
+              <Label htmlFor="description">Short description</Label>
               <Input
                 id="description"
-                placeholder="Ex: Explorando variantes GLU para modelos 46M"
+                placeholder="e.g. Exploring GLU variants for 46M models"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -160,7 +160,7 @@ export default function SubmitPage() {
               <TabsList className="mb-4">
                 <TabsTrigger value="edit" className="gap-1">
                   <FileText className="h-4 w-4" />
-                  Editar
+                  Edit
                 </TabsTrigger>
                 <TabsTrigger value="preview" className="gap-1">
                   <Eye className="h-4 w-4" />
@@ -169,7 +169,7 @@ export default function SubmitPage() {
               </TabsList>
               <TabsContent value="edit">
                 <Textarea
-                  placeholder="Cole ou escreva seu program.md aqui... (Markdown)"
+                  placeholder="Paste or write your program.md here... (Markdown)"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   rows={20}
@@ -185,7 +185,7 @@ export default function SubmitPage() {
                     </ReactMarkdown>
                   ) : (
                     <p className="text-muted-foreground">
-                      Nada pra previsualizar...
+                      Nothing to preview yet...
                     </p>
                   )}
                 </div>
@@ -197,7 +197,7 @@ export default function SubmitPage() {
         {/* Result */}
         <Card>
           <CardHeader>
-            <CardTitle>Resultado (opcional no momento)</CardTitle>
+            <CardTitle>Result (optional for now)</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -222,7 +222,7 @@ export default function SubmitPage() {
                 />
               </div>
               <div>
-                <Label htmlFor="runtime">Tempo (minutos)</Label>
+                <Label htmlFor="runtime">Runtime (minutes)</Label>
                 <Input
                   id="runtime"
                   type="number"
@@ -233,17 +233,17 @@ export default function SubmitPage() {
               </div>
             </div>
             <div>
-              <Label htmlFor="notes">Notas</Label>
+              <Label htmlFor="notes">Notes</Label>
               <Textarea
                 id="notes"
-                placeholder="Observações sobre o experimento..."
+                placeholder="Notes about the experiment..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 rows={3}
               />
             </div>
             <div>
-              <Label htmlFor="log">Upload de log de treinamento</Label>
+              <Label htmlFor="log">Upload training log</Label>
               <Input
                 id="log"
                 type="file"
@@ -252,7 +252,7 @@ export default function SubmitPage() {
                 className="cursor-pointer"
               />
               <p className="text-xs text-muted-foreground mt-1">
-                Formatos aceitos: .txt, .log, .csv, .json, .jsonl
+                Accepted formats: .txt, .log, .csv, .json, .jsonl
               </p>
             </div>
           </CardContent>
@@ -270,11 +270,11 @@ export default function SubmitPage() {
             variant="ghost"
             onClick={() => router.back()}
           >
-            Cancelar
+            Cancel
           </Button>
           <Button type="submit" disabled={submitting || !title || !content}>
             <Upload className="h-4 w-4 mr-1" />
-            {submitting ? "Submetendo..." : "Submeter programa"}
+            {submitting ? "Submitting..." : "Submit program"}
           </Button>
         </div>
       </form>

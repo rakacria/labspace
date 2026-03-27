@@ -26,7 +26,6 @@ import {
 } from "lucide-react"
 import type { Program, Submission, Comment } from "@/types/database"
 import { formatDistanceToNow } from "date-fns"
-import { ptBR } from "date-fns/locale"
 import { useState, useMemo } from "react"
 import { cn } from "@/lib/utils"
 
@@ -276,10 +275,10 @@ export function ProgramContent({
                              <div>
                                <div className="flex items-center gap-3 mb-2">
                                   <Badge variant="default" className="rounded-md px-2">
-                                    Concluído
+                                    Completed
                                   </Badge>
                                   <span className="text-sm font-medium text-slate-500">
-                                    {formatDistanceToNow(new Date(sub.created_at), { addSuffix: true, locale: ptBR })}
+                                    {formatDistanceToNow(new Date(sub.created_at), { addSuffix: true })}
                                   </span>
                                </div>
                                <div className="text-sm text-slate-600 font-mono bg-slate-100 px-3 py-1.5 rounded-md inline-block">
@@ -304,7 +303,7 @@ export function ProgramContent({
                     <CardContent className="p-0 divide-y divide-slate-100">
                       {forks.length === 0 ? (
                         <div className="p-12 text-center text-muted-foreground">
-                          Nenhum fork criado ainda.
+                          No forks created yet.
                         </div>
                       ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6">
@@ -381,7 +380,7 @@ export function ProgramContent({
                                   {comment.user?.username}
                                 </span>
                                 <span className="text-xs text-slate-400 font-medium tracking-wide">
-                                  {formatDistanceToNow(new Date(comment.created_at), { addSuffix: true, locale: ptBR })}
+                                  {formatDistanceToNow(new Date(comment.created_at), { addSuffix: true })}
                                 </span>
                               </div>
                               <p className="text-slate-700 leading-relaxed text-sm md:text-base whitespace-pre-wrap">

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: ProgramPageProps) {
     .eq("slug", slug)
     .single()
 
-  if (!program) return { title: "Programa não encontrado" }
+  if (!program) return { title: "Program not found" }
 
   return {
     title: `${program.title} — Labspace`,

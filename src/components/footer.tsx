@@ -7,17 +7,14 @@ export function Footer() {
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 py-6 px-4 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
           <FlaskConical className="h-4 w-4" />
-          <span>Labspace — O marketplace de pesquisa autônoma em IA</span>
+          <span>Labspace — Autonomous AI Research Programs</span>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/" className="hover:text-foreground transition-colors">
+          <Link href="/leaderboard" className="hover:text-foreground transition-colors">
             Leaderboard
           </Link>
-          <Link
-            href="/feed"
-            className="hover:text-foreground transition-colors"
-          >
-            Feed
+          <Link href="/discover" className="hover:text-foreground transition-colors">
+            Discover
           </Link>
           <a
             href="https://github.com"

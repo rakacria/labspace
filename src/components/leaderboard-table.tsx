@@ -46,7 +46,7 @@ export function LeaderboardTable({ entries }: LeaderboardTableProps) {
                   {entry.title}
                 </h3>
                 <p className="text-[13px] text-muted-foreground truncate mt-0.5">
-                  By {entry.author?.username || "Autor Desconhecido"}
+                  By {entry.author?.username || "Unknown"}
                 </p>
               </div>
               

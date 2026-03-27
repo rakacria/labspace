@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Labspace — O marketplace de pesquisa autônoma em IA",
+  title: "Labspace — Autonomous AI Research Programs",
   description:
-    "Publique, descubra, fork e compete com programas de pesquisa autônoma. Leaderboard global de val_bpb.",
+    "Publish, discover, fork, and compete with autonomous AI research programs. Global val_bpb leaderboard.",
 }
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="pt-BR"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
